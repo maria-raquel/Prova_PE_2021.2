@@ -1,8 +1,6 @@
 /*
 >>>>>>>>>>> PROVA_PROGRAMAÇÃO_ESTRUTURADA <<<<<<<<<<<<<
-
 * Professor: Igor Malheiros
-
 >>>>>>>>>>>>>>>>>>>>>>>>>|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 Alunos:
 - Jonas Felipe | 20210026948
@@ -10,6 +8,7 @@ Alunos:
 */ 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 float media(int *notas, int n){
@@ -21,9 +20,28 @@ float media(int *notas, int n){
     return soma/n;
 }
 
-int mediana(int *notas, int n){
+void bubble_sort(int *notas, int n){
+    int temp = 0;
+    int troca;
+    do{
+        troca = 0;
+        for(int i = 0; i < n-1; i++){
+            if (notas[i] > notas[i+1]){
+                temp = notas[i];
+                notas[i] = notas[i+1];
+                notas[i+1] = temp;
+                troca = 1;
+            }
+        }
+    }while(troca);  
+}
+
+float mediana(int *notas, int n){
+    
+    bubble_sort(notas, n);
+    
     if (n%2 == 0)
-        return (notas[n/2] + notas[n/2+1])/2;
+        return (notas[n/2-1] + notas[n/2])/2.0;
     if (n%2 == 1)
         return notas[n/2];
 }
