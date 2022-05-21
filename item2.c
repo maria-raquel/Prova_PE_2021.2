@@ -39,25 +39,26 @@ void bubble_sort(int *notas, int n){
 }
 
 float mediana(int *notas, int n){
+    
     bubble_sort(notas, n);
-
+    
     if (n%2 == 0)
-        return (notas[n/2] + notas[n/2+1])/2;
+        return (notas[n/2-1] + notas[n/2])/2.0;
     if (n%2 == 1)
         return notas[n/2];
 }
 
-// float desvio_padrao(int *notas, int n){
-//     float soma = 0, m;
-//     m = media(notas, n);
+float desvio_padrao(int *notas, int n){
+    float soma = 0, m;
+    m = media(notas, n);
 
-//     for (int i=0; i<n; i++)
-//         soma += pow((notas[i]-m), 2);
+    for (int i=0; i<n; i++)
+        soma += pow((notas[i]-m), 2);
     
-//     soma /= n;
+    soma /= n;
 
-//     return sqrt(soma);
-// }
+    return sqrt(soma);
+}
 
 int valor_maximo(int *notas, int n){
     int maior = 0;
