@@ -32,18 +32,18 @@ void *moda(int *notas, int tam, int *m){
         freq[notas[i]]++;
     }
        
-    for (int i = 0; i < tam; i++){
+    for (int i = 0; i <= 10; i++){
         if (freq[i] > maior){
             maior = freq[i];
         }
     }
-    
-    printf("%d\n", maior);
+
     for (int i = 0; i < tam; i++){
         if (freq[notas[i]] == maior){
             m[notas[i]]++;
         }
     }
+
     for (int i = 0; i <= 10; i++){
         printf("%d, ", freq[i]);
     }
