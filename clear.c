@@ -22,3 +22,43 @@ void clear(int *notas, int tam){
         }
     }
 }
+
+void *moda(int *notas, int tam, int *m);
+void *moda(int *notas, int tam, int *m){
+    int freq[11] = {0};
+    
+    int maior = 0;    
+    for(int i = 0; i < tam; i++){
+        freq[notas[i]]++;
+    }
+       
+    for (int i = 0; i < tam; i++){
+        if (freq[i] > maior){
+            maior = freq[i];
+        }
+    }
+    
+    printf("%d\n", maior);
+    for (int i = 0; i < tam; i++){
+        if (freq[notas[i]] == maior){
+            m[notas[i]]++;
+        }
+    }
+    for (int i = 0; i <= 10; i++){
+        printf("%d, ", freq[i]);
+    }
+
+}
+
+int main(){
+    int m[11] = {0};
+
+    int notas[13] = {5, 3, 3, 8, 7, 10, 10, 0, 2, 7, 12, 9, 10};
+    clear(notas, 13);
+    moda(notas, 13, m);
+    for (int i = 0; i <= 10; i++){
+        if(m[i] != 0){
+            printf("%d, ", i);
+        }
+    }
+}
