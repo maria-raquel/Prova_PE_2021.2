@@ -1,4 +1,3 @@
-
 /*
 >>>>>>>>>>> PROVA_PROGRAMAÇÃO_ESTRUTURADA <<<<<<<<<<<<<
 
@@ -27,7 +26,7 @@ void bubble_sort(int *notas, int n){
     int troca;
     do{
         troca = 0;
-        for(int i = 0; i < tam-1; i++){
+        for(int i = 0; i < n-1; i++){
             if (notas[i] > notas[i+1]){
                 temp = notas[i];
                 notas[i] = notas[i+1];
