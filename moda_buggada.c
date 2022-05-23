@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 int repeticoes_nota(int *notas, int i){
     if (notas[i] != notas[i+1])
         return 0;
