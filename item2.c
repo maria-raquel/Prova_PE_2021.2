@@ -1,8 +1,6 @@
 /*
 >>>>>>>>>>> PROVA_PROGRAMAÇÃO_ESTRUTURADA <<<<<<<<<<<<<
-
 * Professor: Igor Malheiros
-
 >>>>>>>>>>>>>>>>>>>>>>>>>|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 Alunos:
 - Jonas Felipe | 20210026948
@@ -10,6 +8,7 @@ Alunos:
 */ 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 float media(int *notas, int n){
