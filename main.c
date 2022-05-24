@@ -1,9 +1,9 @@
 /*
->>>>>>>>>>> PROVA_PROGRAMAÇÃO_ESTRUTURADA <<<<<<<<<<<<<
+>>>>>>>>>>> PROVA_1_PROGRAMAÇÃO_ESTRUTURADA <<<<<<<<<<<<<
 
 * Professor: Igor Malheiros
 
->>>>>>>>>>>>>>>>>>>>>>>>>|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>>>>|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 Alunos:
 - Jonas Felipe | 20210026948
 - Maria Raquel | 20200025900
@@ -17,8 +17,8 @@ int main(){
     int *modas;
     int n = 13; //tamanho do array notas
 
-    clear(notas, n);
-    ord(notas, n);
+    limpeza(notas, n);
+    ordenacao(notas, n);
 
     printf("Media aritimedica: %f\n", media(notas, n));
     printf("Mediana: %f\n", mediana(notas, n));
