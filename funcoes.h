@@ -23,7 +23,7 @@ int repeticoes_nota(int *notas, int i);
 int *moda(int *notas, int n, int *tm);
 int valor_maximo(int *notas, int n);
 int valor_minimo(int *notas, int n);
-void plot_hist(int *notas, int n);
+void plot_hist(int *notas, int n, int axis);
 void printar_arrays(int *array, int n);
 
 #endif

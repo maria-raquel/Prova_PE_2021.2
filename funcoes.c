@@ -13,11 +13,14 @@ Alunos:
 #include <stdlib.h>
 #include <stdio.h>
 #include "funcoes.h"
-//>================== limpeza e organizaçao do codigo: ==================
+//>================== LIMPEZA E ORGANIZACAO DO CODIGO: ==================
 
-//>> funcao clear realiza a limpeza nas notas. Notas maiores que 10 transforma em 10 enotas menor que 0 em 0
+/*Funcao clear realiza a limpeza nas notas. 
+Notas maiores que 10 transforma em 10 e notas menores que 0 em 0
+    > int *notas = array de notas 
+    > int n = tamanho do array
+*/
 void clear(int *notas, int n){
-    //int *notas = array de notas | int n = tamanho do array
     for (int i = 0; i < n; i++){
         if (notas[i] > 10){
             notas[i] = 10;
@@ -28,9 +31,11 @@ void clear(int *notas, int n){
     }
 }
 
-//>> Utilizando o metodo de bubble sorte a funcao ord organiza o array de notas por ordem crescente
+/*Utilizando o metodo de bubble sorte a funcao ord organiza o array de notas por ordem crescente
+    > int *notas = array de notas 
+    > int n = tamanho do array
+*/
 void ord(int *notas, int n){
-    //int *notas = array de notas | int n = tamanho do array
     int temp = 0;
     int troca;
     do{
@@ -46,9 +51,13 @@ void ord(int *notas, int n){
     }while(troca);  //enquanto houver trocas essa ordenacao e executada
 }
 
-//>================== funcoes matemáticas: ==================
+//>================== FUNCOES MATEMATICAS: ==================
 
-//>> Esta funcao realiza o calculo do desvio padrao (sqrt((somatorio((valor individual - valor medio)^2))/numero de valores))
+/*Esta funcao realiza o calculo do desvio padrao 
+(sqrt((somatorio((valor individual - valor medio)^2))/numero de valores))
+    > int *notas = array de notas 
+    > int n = tamanho do array
+*/
 float desvio_padrao(int *notas, int n){
     //int *notas = array de notas | int n = tamanho do array
     float soma = 0, m;
@@ -62,9 +71,11 @@ float desvio_padrao(int *notas, int n){
     return sqrt(soma);
 }
 
-//>> Retorna a media dos valores do array (somatorio(valores)/quantidade de valores)
+/*Retorna a media dos valores do array
+    > int *notas = array de notas 
+    > int n = tamanho do array
+*/
 float media(int *notas, int n){
-    //int *notas = array de notas | int n = tamanho do array
     float soma = 0;
 
     for (int i = 0; i < n; i++)
@@ -73,32 +84,37 @@ float media(int *notas, int n){
     return soma/n;
 }
 
-//>> Retorna a mediana
+/*Essa funcao retorna o valor da mediana
+    > int *notas = array de notas 
+    > int n = tamanho do array
+*/
 float mediana(int *notas, int n){
-    //int *notas = array de notas | int n = tamanho do array
-    
     if (n%2 == 0)
         return (notas[n/2-1] + notas[n/2])/2.0;//Se o array for de tamanho par retorna a media entre os valores centrais do array
     if (n%2 == 1)
         return notas[n/2]; //Se o array for de tamanho impar retorna a valor central do array
 }
 
-//>> Essa funcao retorna um array constando a quantidade de repetições de um numero apos ele em um array
-//>>> Ex.: (1,2,2,3,5) => (0,1,0,0,0) *o numero 2 repete-se uma vez no array
+/*Essa funcao retorna um array constando a quantidade de repetições de um numero apos ele em um array
+    Ex.: (1,2,2,3,5) => (0,1,0,0,0) *o numero 2 repete-se uma vez no array
+    > *notas =  array de notas 
+    > int i = index a ser analizado
+*/ 
 int repeticoes_nota(int *notas, int i){
-    //int *notas =  array de notas | int i = index a ser analizado
+    //int 
     if (notas[i] != notas[i+1]) // verificando se o proximo valor e igual o anterior, se nao, return 0
         return 0;
     if (notas[i] == notas[i+1]) // se o valor for igual ele testa o proximo erealiza a soma de todos os valores iguais apos esse
         return 1 + repeticoes_nota(notas, i+1);
 }
 
-//>> Retorna um array com a(s) moda(s) dos valores de nota e seu tamanho
-int *moda(int *notas, int n, int *tm){
-    //int *notas  array de notas | int n = tamanho do array | int *tm = ponteiro que informa o tamanho do array moda
 
-    // A função recebe o array de notas, o tamanho dele, 
-    // e um ponteiro para o tamanho do array de modas final que a função retorna
+/*Retorna um array com a(s) moda(s) dos valores de nota e seu tamanho
+    > int *notas  array de notas 
+    > int n = tamanho do array 
+    > int *tm = ponteiro que informa o tamanho do array moda
+*/
+int *moda(int *notas, int n, int *tm){
 
     int modas[n], *modas_limpas, counts[n], maior_repeticao = 0, repeticoes = 0;
 
@@ -144,7 +160,10 @@ int *moda(int *notas, int n, int *tm){
     return modas_limpas;
 }
 
-//>> Verifica qual o maior valor do array
+/*Verifica qual o maior valor do array
+    > int *notas = array de notas
+    > int n = tamanho do array
+*/
 int valor_maximo(int *notas, int n){
     //int *notas = array de notas | int n = tamanho do array
     int maior = 0;
@@ -159,9 +178,11 @@ int valor_maximo(int *notas, int n){
     return maior;
 }
 
-//>> Verificia qual o menor valor do array
+/*Verifica qual o menor valor do array
+    > int *notas = array de notas
+    > int n = tamanho do array
+*/
 int valor_minimo(int *notas, int n){
-    // int *notas = array de notas | int n =  tamanho do array
     int menor = 10;
 
     for (int i = 0; i < n; i++){
@@ -173,35 +194,73 @@ int valor_minimo(int *notas, int n){
     return menor;
 }
 
-//>================== visualizacao: ==================
+//>================== VISUALIZACAO: ==================
 
-//>> Exibe na tela um histograma dos valores fornecidos no array
-void plot_hist(int *notas, int n){
-    //int *notas = array de notas que ter a o histograma apresentado | int n = tamanho do array de notas
+/*Exibe na tela um histograma dos valores fornecidos no array
+    > int *notas = array de notas que ter a o histograma apresentado 
+    > int n = tamanho do array de notas 
+    > int axis = orientacao da tabela (0 para vertical, 1 para horizontal) 
+*/
+void plot_hist(int *notas, int n, int axis){
     int freq[11] = {0}; //Criando um array que vai possuir as frequencia das notas que variam de 0 a 10
     for(int i = 0; i < n; i++){
         freq[notas[i]]++; // Incrementa na posicaoreferente a nota no array freq 
     }
-    printf("---- Histograma ------\n"); // Inseri o histograma na tela
-    for (int i = 0; i < 6; i++){ 
-        printf("%.2d|",i); // Insere a nota que tera sua frequencia exibida
-        for (int j = 0; j < freq[i]; j++){
-            printf("◼"); // Insere um "◼" para cada contador da frequencia
-            //Ex.: 1 (aparecendo 5 vezes)| ◼◼◼◼◼
+    printf("--------- Histograma ---------\n"); // Insere o histograma na tela
+
+    if(axis){
+        int hist[11][11];
+
+        for(int i = 0; i < 11; i++){
+            for (int j = 0; j < freq[i]; j++){
+                hist[i][j] = 1;
+            }
+            for (int j = freq[i]; j < 11; j++){
+                hist[i][j] = 0;
+            }
         }
-        printf("\t(:c)\n"); //Notas abaixo de 6 recebem  rostinhos tristes
-    }
-    // Insere a frequencia do restante dos valores
-    for (int i = 6; i < 11; i++){
-    printf("%.2d|",i);
-    for (int j = 0; j < freq[i]; j++){
-        printf("◼");
-    }
-    printf("\t(:D)\n"); //Notas a partir de 6 recebem um rostinho feliz
+        
+        for (int i = 11-(11-valor_maximo(freq, 11)), j; i >= 0; i--){
+            printf("\t");
+            for (j = 0; j < 11; j++){
+                if(hist[j][i])
+                    printf("◼ ");
+                else
+                    printf("  ");
+
+            }
+            printf("\n");
+        }
+        printf("notas\t");
+        for (int i = 0; i < 11; i++)
+        {
+            printf("%d ", i);
+        }
+    
+    }else{
+        for (int i = 0; i < 6; i++){ 
+            printf("%.2d|",i); // Insere a nota que tera sua frequencia exibida
+            for (int j = 0; j < freq[i]; j++){
+                printf("◼"); // Insere um "◼" para cada contador da frequencia
+                //Ex.: 1 (aparecendo 5 vezes)| ◼◼◼◼◼
+            }
+            printf("\t(:c)\n"); //Notas abaixo de 6 recebem  rostinhos tristes
+        }
+        // Insere a frequencia do restante dos valores
+        for (int i = 6; i < 11; i++){
+        printf("%.2d|",i);
+        for (int j = 0; j < freq[i]; j++){
+            printf("◼");
+        }
+        printf("\t(:D)\n"); //Notas a partir de 6 recebem um rostinho feliz
+        }
     }
 }
 
-//>> Funcao que printa qualquer array na tela 
+/*Funcao que printa qualquer array de uma dimensao na tela
+    > int *array = array de uma dimensao que sera mostrado na tela 
+    > int n = tamanho do array
+*/ 
 void printar_arrays(int *array, int n){
     // int *array = array a ser printado | int n = tamanho do array
     for(int i=0; i<n; i++)
