@@ -27,32 +27,32 @@ void plot_hist(int *notas, int n, int axis){
     int freq[11] = {0};
 
     for(int i = 0; i < n; i++)
-        freq[notas[i]]++; // Incrementando na posicao referente a nota no array freq 
+        freq[notas[i]]++; // Criando a frequencia de cada nota 
     
-    printf("--------- Histograma ---------\n"); // Inserindo o histograma na tela
+    puts("--------- Histograma ---------");
 
     if(axis){
-        int hist[11][11];
+        int hist[11][11]; // Criando a matriz quadrada que vai receber os valores da frequencia
 
         for(int i = 0; i < 11; i++){
             for (int j = 0; j < freq[i]; j++){
-                hist[i][j] = 1;
+                hist[i][j] = 1; // Preenchendo a matriz quadrada com '1' para cada ocorrencia de cada nota
             }
             for (int j = freq[i]; j < 11; j++){
-                hist[i][j] = 0;
+                hist[i][j] = 0; // Preenchendo o restante da matriz com '0'
             }
         }
         
         for (int i = valor_maximo(freq, 11), j; i >= 0; i--){
-            printf("\t");
+            putchar('\t');
             for (j = 0; j < 11; j++){
-                if(hist[j][i])
+                if(hist[j][i]) // Imprimindo, de baixo para cima, a matriz transposta
                     printf("◼ ");
                 else
                     printf("  ");
 
             }
-            printf("\n");
+            putchar('\n');
         }
         printf("notas\t");
         for (int i = 0; i < 11; i++)
@@ -62,22 +62,24 @@ void plot_hist(int *notas, int n, int axis){
     
     }else{
         for (int i = 0; i < 6; i++){ 
-            printf("%.2d|",i); // Insere a nota que tera sua frequencia exibida
+            printf("%.2d|",i); // Inserindo a nota que tera sua frequencia exibida
             for (int j = 0; j < freq[i]; j++){
-                printf("◼"); // Insere um "◼" para cada contador da frequencia
+                printf("◼"); // Inserindo um "◼" para cada contador da frequencia
                 //Ex.: 1 (aparecendo 5 vezes)| ◼◼◼◼◼
             }
-            printf("\t(:c)\n"); //Notas abaixo de 6 recebem  rostinhos tristes
+            puts("\t(:c)"); // Notas abaixo de 6 recebem rostinhos tristes
         }
-        // Insere a frequencia do restante dos valores
+        // Inserindo a frequencia do restante dos valores
         for (int i = 6; i < 11; i++){
         printf("%.2d|",i);
+
         for (int j = 0; j < freq[i]; j++){
             printf("◼");
         }
-        printf("\t(:D)\n"); //Notas a partir de 6 recebem um rostinho feliz
+        puts("\t(:D)"); // Notas a partir de 6 recebem um rostinho feliz
         }
     }
+    putchar('\n');
 }
 
 /*Funcao que exibe na tela qualquer array unidimensional
