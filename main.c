@@ -13,9 +13,9 @@ Alunos:
 #include "funcoes.h"
 
 int main(){
-    int notas[13] = {5, 3, 3, 3, 7, 10, 10, 7, 2, 7, 12, 9, 10};
+    int notas[13] = {5, 3, 3, 8, 7, 10, 10, -5, 2, 7, 12, 9, 10};
     int *modas;
-    int n = 13;
+    int n = 13; //tamanho do array notas
 
     clear(notas, n);
     ord(notas, n);
@@ -33,7 +33,8 @@ int main(){
     printf("Valor maximo: %d\n", valor_maximo(notas, n));
     printf("Valor minimo: %d\n", valor_minimo(notas, n));
 
-    plot_hist(notas, n);
+    plot_hist(notas, n, 0);
+    plot_hist(notas, n, 1);
 
     return 0;
 }
