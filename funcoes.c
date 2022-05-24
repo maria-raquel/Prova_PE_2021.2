@@ -192,7 +192,7 @@ int valor_minimo(int *notas, int n){
             menor = notas[i];
         }
     return menor;
-}
+}   
 
 //>================== VISUALIZACAO: ==================
 
