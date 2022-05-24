@@ -10,7 +10,9 @@ Alunos:
 */
 
 #include <stdio.h>
-#include "funcoes.h"
+#include "limpeza.h"
+#include "matematica.h"
+#include "visualizacao.h"
 
 int main(){
     int notas[13] = {5, 3, 3, 8, 7, 10, 10, -5, 2, 7, 12, 9, 10};

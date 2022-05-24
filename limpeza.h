@@ -9,20 +9,13 @@ Alunos:
 - Maria Raquel | 20200025900
 */
 
-#ifndef FUNCOES_H
-#define FUNCOES_H
+#ifndef LIMPEZA_H
+#define LIMPEZA_H
 
 //>================== Assinatura de funcoes: ==================
+//>============= LIMPEZA E ORGANIZACAO DOS DADOS: =============
 
 void limpeza(int *notas, int n);
 void ordenacao(int *notas, int n);
-float desvio_padrao(int *notas, int n);
-float media(int *notas, int n);
-float mediana(int *notas, int n);
-int *moda(int *notas, int n, int *tm);
-int valor_maximo(int *notas, int n);
-int valor_minimo(int *notas, int n);
-void plot_hist(int *notas, int n, int axis);
-void printar_arrays(int *array, int n);
 
 #endif
